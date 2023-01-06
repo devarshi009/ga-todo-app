@@ -24,7 +24,7 @@ jobs:
    - name: Build Project
      run: npm run build
    - name: Upload Artifact
-     uses: actions/uplaod-pages-artifact@v1
+     uses: actions/upload-pages-artifact@v1
      with:
        path: ./build  
 deploy:
@@ -32,7 +32,7 @@ deploy:
   needs: build
   environment: 
     name: github-pages
-    url: ${{steps.deployment.outputs.page_url}}
+    url: ${{ steps.deployment.outputs.page_url }}
   steps:
     - name: Deploy to Github pages
       id: deployment
